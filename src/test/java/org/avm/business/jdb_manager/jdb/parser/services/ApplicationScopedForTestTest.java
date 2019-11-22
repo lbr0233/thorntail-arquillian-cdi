@@ -5,7 +5,6 @@ import static org.junit.Assert.assertNotNull;
 import javax.inject.Inject;
 
 import org.jboss.arquillian.container.test.api.Deployment;
-import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ArchivePaths;
@@ -14,8 +13,6 @@ import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.wildfly.swarm.arquillian.DefaultDeployment;
-import org.wildfly.swarm.spi.api.JARArchive;
 
 @RunWith(Arquillian.class)
 //@DefaultDeployment
@@ -42,5 +39,11 @@ public class ApplicationScopedForTestTest {
 	@Test
 	public void print() {
 		assertNotNull(services);
+	}
+	//This test works ...
+	@Test
+	public void print2() {
+		ApplicationScopedForTest as = new ApplicationScopedForTest();
+		as.print();
 	}
 }
