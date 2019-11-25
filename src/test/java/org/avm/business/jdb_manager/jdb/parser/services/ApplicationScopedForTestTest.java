@@ -23,7 +23,7 @@ public class ApplicationScopedForTestTest {
 
 		JavaArchive archive = ShrinkWrap.create(JavaArchive.class, "jdbManagerTEST.jar");
 		archive.addPackages(true, "org.avm.business.jdb_manager");
-		archive.addAsResource(EmptyAsset.INSTANCE, ArchivePaths.create("beans.xml"));
+		archive.addAsManifestResource(EmptyAsset.INSTANCE, ArchivePaths.create("beans.xml"));
 		archive.addAsResource("META-INF/persistence-test.xml", "persistence.xml");
 		archive.addAsResource("project-tests.yml", "project-default.yml");
 	

@@ -2,6 +2,7 @@
 launch : mvn test
 
 Then you'll have :
+```
 -------------------------------------------------------
  T E S T S
 -------------------------------------------------------
@@ -192,7 +193,11 @@ Caused by: org.jboss.arquillian.test.spi.ArquillianProxyException: org.jboss.wel
 	at org.jboss.weld.manager.InjectionTargetFactoryImpl.validate(InjectionTargetFactoryImpl.java:153)
 	at org.jboss.weld.manager.InjectionTargetFactoryImpl.createInjectionTarget(InjectionTargetFactoryImpl.java:81)
 	... 126 more
+```
 
 
+_Question is WHY ????_
 
-Question is WHY ????
+#Solution :
+And the answer is there : https://stackoverflow.com/questions/58997158/howto-test-with-arquillian-and-thorntail-without-defaultdeployment/59027407#59027407
+Simply add file beans.xml as a ManifestResource `archive.addAsManifestResource(EmptyAsset.INSTANCE, ArchivePaths.create("beans.xml"));` not as a resource.
